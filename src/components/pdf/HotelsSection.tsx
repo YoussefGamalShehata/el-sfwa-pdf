@@ -1,5 +1,5 @@
 import { Hotel } from "@/types/itinerary";
-import { Star, Moon } from "lucide-react";
+import { Star, Moon, Link as LinkIcon } from "lucide-react";
 
 interface HotelsSectionProps {
   hotels: Hotel[];
@@ -46,9 +46,22 @@ export const HotelsSection = ({ hotels }: HotelsSectionProps) => {
                 </div>
               </div>
               {hotel.notes && (
-                <p className="text-sm text-muted-foreground italic">
+                <p className="text-sm text-muted-foreground italic mb-2">
                   {hotel.notes}
                 </p>
+              )}
+              {hotel.website && (
+                <div className="mt-2 pt-2 border-t border-border">
+                  <a
+                    href={hotel.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs text-accent hover:underline font-medium"
+                  >
+                    <LinkIcon className="w-3.5 h-3.5" />
+                    زيارة موقع الفندق
+                  </a>
+                </div>
               )}
             </div>
             <div className="relative w-24 h-20 flex-shrink-0">
